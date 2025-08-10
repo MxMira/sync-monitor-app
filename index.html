@@ -1,0 +1,57 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل خطوات السينك</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>تسجيل خطوات السينك</h2>
+
+    <label>اسم الموظف</label>
+    <select id="user">
+      <option value="مهيتاب">مهيتاب</option>
+      <option value="اسلام">اسلام</option>
+      <option value="طه">طه</option>
+      <option value="ميرة">ميرة</option>
+    </select>
+
+    <label>المحافظة</label>
+    <select id="region" onchange="populateDatabases()">
+      <option value="القاهرة ألماظه">القاهرة ألماظه</option>
+      <option value="اسكندرية العامرية">اسكندرية العامرية</option>
+      <option value="المنوفية السادات">المنوفية السادات</option>
+      <option value="المنوفية">المنوفية</option>
+      <option value="الغربيه">الغربيه</option>
+      <option value="الوراق الصعيد">الوراق الصعيد</option>
+      <option value="الوراق القليوبية">الوراق القليوبية</option>
+    </select>
+
+    <label>قاعدة البيانات</label>
+    <select id="database"></select>
+
+    <label>عدد الريكوردات (دلتا)</label>
+    <input type="number" id="recordCount" />
+
+    <label><input type="checkbox" id="backupTaken"> تم أخذ نسخة احتياطية</label>
+    <label><input type="checkbox" id="backupUploaded"> تم رفع النسخة على الشير فولدر</label>
+    <label><input type="checkbox" id="compressDone" onchange="toggleCompressSteps()"> تم عمل كومبرس</label>
+
+    <div id="extraSteps" style="display:none">
+      <label><input type="checkbox" id="rebuildDone"> تم عمل Rebuild Index</label>
+      <label><input type="checkbox" id="analyzeDone"> تم عمل Analyze Datasets</label>
+    </div>
+
+    <button onclick="submitForm()">حفظ</button>
+    <p id="msg"></p>
+  </div>
+
+  <script src="firebase.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تسجيل الدخول</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>تسجيل الدخول</h2>
+    <input type="password" id="password" placeholder="ادخل كلمة السر" />
+    <button onclick="checkPassword()">دخول</button>
+    <p id="error" class="error"></p>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const pass = document.getElementById("password").value;
+      if (pass === "team123") {
+        window.location.href = "index.html";
+      } else if (pass === "admin456") {
+        window.location.href = "dashboard.html";
+      } else {
+        document.getElementById("error").innerText = "كلمة السر غير صحيحة";
+      }
+    }
+  </script>
+</body>
+</html>
+
+<!-- index.html (واجهة الموظف) -->
+<!-- سيتم إنشاؤها الآن مع Firebase integration -->
+<!-- dashboard.html (واجهة المدير) -->
+<!-- سيتم توليدها الآن بالكروت والإحصائيات -->
+<!-- style.css + firebase.js + script.js + dashboard.js -->
+<!-- سيتم إنشاؤهم تباعًا -->
